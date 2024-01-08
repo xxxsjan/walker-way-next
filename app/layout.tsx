@@ -10,7 +10,8 @@ import clsx from "clsx";
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
-    template: `%s - ${siteConfig.name}`,
+    // template: `%s - ${siteConfig.name}`,
+    template: `${siteConfig.name}`,
   },
   description: siteConfig.description,
   themeColor: [
