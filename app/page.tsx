@@ -12,16 +12,18 @@ import {
   RadioGroup,
   Radio,
 } from "@nextui-org/react";
-import { Button } from "@nextui-org/button";
+
 import { CustomCheckbox } from "@/components/CustomCheckbox";
+
+const _data = data.reduce((pre: any, cur: any) => {
+  if (cur.children) {
+    return [...pre, ...cur.children];
+  } else {
+    return pre;
+  }
+}, []);
+
 export default function Home() {
-  const _data = data.reduce((pre: any, cur: any) => {
-    if (cur.children) {
-      return [...pre, ...cur.children];
-    } else {
-      return pre;
-    }
-  }, []);
   const [list, setList] = React.useState(_data);
   // 位面1
   const firstData = _data.map((m: any) => {
@@ -31,7 +33,7 @@ export default function Home() {
   const mingtuData: any = mingtu;
 
   const [selected, setSelected] = React.useState([]);
-  const [selected2, setSelected2] = React.useState([]);
+  const [selected2, setSelected2] = React.useState();
   const [tabsSelectedKey, setTabsSelectedKey] = React.useState("mt");
   React.useEffect(() => {
     if (tabsSelectedKey === "mt") {
@@ -47,8 +49,9 @@ export default function Home() {
       }
     }
     if (tabsSelectedKey === "wm") {
-      if (selected2.length > 0) {
+      if (selected2) {
         const _list = _data.filter((m: any) => {
+          // @ts-ignore
           return selected2.includes(m[0].name);
         });
         setList(_list);
@@ -62,10 +65,11 @@ export default function Home() {
       if (selected.length === 0) {
         return "primary";
       }
+      // @ts-ignore
       if (selected.includes(mt)) {
         return "primary";
       }
-      return "";
+      return;
     }
     return "primary";
   };
@@ -74,6 +78,7 @@ export default function Home() {
       if (selected.length === 0) {
         return false;
       }
+      // @ts-ignore
       return !selected.includes(mt);
     }
   };
@@ -83,10 +88,11 @@ export default function Home() {
         <div className="absolute">
           <h1 className={title({ color: "violet" })}>行者之道</h1>
         </div>
+
         <Tabs
           aria-label="Tabs radius"
           selectedKey={tabsSelectedKey}
-          onSelectionChange={setTabsSelectedKey}
+          onSelectionChange={setTabsSelectedKey as any}
         >
           <Tab key="mt" title="命途">
             <CheckboxGroup
@@ -94,7 +100,7 @@ export default function Home() {
               orientation="horizontal"
               color="secondary"
               value={selected}
-              onValueChange={setSelected}
+              onValueChange={setSelected as any}
               classNames={{ wrapper: "justify-center" }}
             >
               {mingtuData.map((m: any) => (
@@ -110,7 +116,7 @@ export default function Home() {
               orientation="horizontal"
               color="secondary"
               value={selected2}
-              onValueChange={setSelected2}
+              onValueChange={setSelected2 as any}
               classNames={{ wrapper: "justify-center" }}
             >
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-4">
@@ -129,7 +135,7 @@ export default function Home() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3   gap-4">
           {list.map((item: any, index: number) => (
             <div key={index} className="flex flex-col justify-between">
-              {item.map((m) => (
+              {item.map((m: any) => (
                 <div key={m.name} className="flex  items-center mb-1">
                   <div className="w-1/3">{m.name}</div>
                   <div>
