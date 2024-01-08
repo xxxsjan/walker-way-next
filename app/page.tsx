@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { title } from "@/components/primitives";
 import data, { mingtu } from "@/data/data";
 
 import {
@@ -85,9 +84,7 @@ export default function Home() {
   return (
     <section className="flex flex-col items-center justify-center gap-4  min-w-[400px]">
       <div className="min-w-full text-center justify-center">
-        <div className="absolute">
-          <h1 className={title({ color: "violet" })}>行者之道</h1>
-        </div>
+      
 
         <Tabs
           aria-label="Tabs radius"
