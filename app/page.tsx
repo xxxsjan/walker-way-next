@@ -10,6 +10,7 @@ import {
   Chip,
   RadioGroup,
   Radio,
+  Button,
 } from "@nextui-org/react";
 
 import { CustomCheckbox } from "@/components/CustomCheckbox";
@@ -21,6 +22,26 @@ const _data = data.reduce((pre: any, cur: any) => {
     return pre;
   }
 }, []);
+function findCount(mt: string, order = 0) {
+  let res = 0;
+  for (let i = 0; i < _data.length; i++) {
+    if (_data[i][order].data.includes(mt)) {
+      res++;
+    }
+  }
+  return res;
+}
+
+console.log(
+  mingtu.reduce((pre: any, cur: any) => {
+    const res = {
+      name: cur,
+      data: [findCount(cur, 0), findCount(cur, 1), findCount(cur, 2)].join("-"),
+    };
+    pre.push(res);
+    return pre;
+  }, [])
+);
 
 export default function Home() {
   const [list, setList] = React.useState(_data);
@@ -83,9 +104,7 @@ export default function Home() {
   };
   return (
     <section className="flex flex-col items-center justify-center gap-4  min-w-[400px]">
-      <div className="min-w-full text-center justify-center">
-      
-
+      <div className="min-w-full text-center justify-center relative">
         <Tabs
           aria-label="Tabs radius"
           selectedKey={tabsSelectedKey}
@@ -126,7 +145,7 @@ export default function Home() {
             </RadioGroup>
           </Tab>
         </Tabs>
-
+        <p className="text-sm">推荐优先级：{"巡猎>毁灭>记忆>丰饶>虚无>存护>欢愉"}</p>
         <Divider className="my-4" />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3   gap-4">
