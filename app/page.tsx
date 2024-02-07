@@ -145,7 +145,12 @@ export default function Home() {
             </RadioGroup>
           </Tab>
         </Tabs>
-        <p className="text-sm">推荐优先级：{"巡猎>毁灭>记忆>丰饶>虚无>存护>欢愉"}</p>
+        <p className="text-sm">
+          推荐优先级：{"巡猎>毁灭>记忆>丰饶>虚无>存护>欢愉"}
+        </p>
+        <p className="text-sm">
+          解锁条件：20次
+        </p>
         <Divider className="my-4" />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3   gap-4">
