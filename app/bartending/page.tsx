@@ -138,12 +138,12 @@ export default function PricingPage() {
               <TableColumn>名称</TableColumn>
             </TableHeader>
             <TableBody>
-              {result.map((m, i) => {
+              {result.map((m:any, i) => {
                 return (
                   <TableRow key={i}>
                     <TableCell>{i + 1}</TableCell>
                     <TableCell>
-                      {m.group.map((item) => item[3]).join(" , ")}
+                      {m?.group?.map((item:any) => item[3]).join(" , ")}
                     </TableCell>
                   </TableRow>
                 );
