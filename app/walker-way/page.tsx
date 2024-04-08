@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import data, { mingtu } from "@/data/data";
+import { useTitle } from "ahooks";
 
 import {
   CheckboxGroup,
@@ -44,6 +45,8 @@ console.log(
 );
 
 export default function Home() {
+  useTitle("行者之道");
+
   const [list, setList] = React.useState(_data);
   // 位面1
   const firstData = _data.map((m: any) => {
@@ -102,9 +105,6 @@ export default function Home() {
       return !selected.includes(mt);
     }
   };
-  React.useEffect(() => {
-    document.title = "行者之道";
-  }, []);
 
   return (
     <section className="flex flex-col items-center justify-center gap-4  min-w-[400px]">

@@ -12,7 +12,8 @@ import {
   RadioGroup,
   Radio,
 } from "@nextui-org/react";
-import { title, subtitle } from "@/components/primitives";
+
+import { useTitle } from "ahooks";
 const sourceArr = [
   [2, 0, 2, "提纯浮羊奶"],
   [1, 0, 0, "星空香槟"],
@@ -66,9 +67,8 @@ const allRes: any = {
   5: nestedForLoop(sourceArr, 5),
 };
 export default function PricingPage() {
-  useEffect(() => {
-    document.title = "调酒推演";
-  }, []);
+  useTitle("调酒推演");
+
   const [tiandu, setTiandu] = useState("0");
   const [liedu, setLiedu] = useState("0");
   const [nongchoudu, setNongchoudu] = useState("0");
