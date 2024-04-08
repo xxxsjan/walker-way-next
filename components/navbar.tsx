@@ -24,7 +24,7 @@ import { GithubIcon, HeartFilledIcon, SearchIcon } from "@/components/icons";
 import { Logo } from "@/components/icons";
 import { title } from "@/components/primitives";
 
-export const Navbar = () => {
+export const Navbar = (props: any) => {
   const searchInput = (
     <Input
       aria-label="Search"
@@ -52,7 +52,7 @@ export const Navbar = () => {
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
             {/* <Logo /> */}
-            <p className="font-bold text-inherit">行者之道</p>
+            <p className="font-bold text-inherit">{props.title}</p>
             {/* <h1 className={title({ color: "violet" })}>行者之道</h1> */}
           </NextLink>
         </NavbarBrand>
