@@ -8,17 +8,18 @@ import { GithubIcon } from "@/components/icons";
 export default function Home() {
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      <div>崩铁助手</div>
-      <div>
-        <a href="/walker-way" className={title({ color: "violet" })}>
-          行者之道
-        </a>
-      </div>
-      <div>
-        <a href="/bartending" className={title({ color: "violet" })}>
-          调酒推演
-        </a>
-      </div>
+      <ul className="space-y-2">
+        <li>
+          <a href="/walker-way" className="block hover:text-blue-500">
+            行者之道
+          </a>
+        </li>
+        <li>
+          <a href="/bartending" className="block hover:text-blue-500">
+            调酒推演
+          </a>
+        </li>
+      </ul>
     </section>
   );
 }

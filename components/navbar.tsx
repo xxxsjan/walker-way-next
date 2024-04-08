@@ -22,7 +22,8 @@ import { ThemeSwitch } from "@/components/theme-switch";
 import { GithubIcon, HeartFilledIcon, SearchIcon } from "@/components/icons";
 
 import { Logo } from "@/components/icons";
-import { title } from "@/components/primitives";
+
+import { title, subtitle } from "@/components/primitives";
 
 export const Navbar = (props: any) => {
   const searchInput = (
@@ -52,7 +53,10 @@ export const Navbar = (props: any) => {
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
             {/* <Logo /> */}
-            <p className="font-bold text-inherit">{props.title}</p>
+            {/* <p className="font-bold text-inherit"></p> */}
+            <p className={title({ color: "violet", size: "xs" })}>
+              {props.title}
+            </p>
             {/* <h1 className={title({ color: "violet" })}>行者之道</h1> */}
           </NextLink>
         </NavbarBrand>
@@ -75,10 +79,10 @@ export const Navbar = (props: any) => {
       </NavbarContent>
 
       <NavbarContent
-        className="hidden sm:flex basis-1/5 sm:basis-full"
+        className="sm:flex basis-1/5 sm:basis-full"
         justify="end"
       >
-        <NavbarItem className="hidden sm:flex gap-2">
+        <NavbarItem className="sm:flex gap-2">
           {/* <GithubIcon className="text-default-500" /> */}
           <ThemeSwitch />
         </NavbarItem>

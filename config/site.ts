@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "行者之道",
+  name: "崩铁助手",
   description: "Make beautiful websites regardless of your design experience.",
   navItems: [
     {

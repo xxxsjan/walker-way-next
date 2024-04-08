@@ -102,6 +102,10 @@ export default function Home() {
       return !selected.includes(mt);
     }
   };
+  React.useEffect(() => {
+    document.title = "行者之道";
+  }, []);
+
   return (
     <section className="flex flex-col items-center justify-center gap-4  min-w-[400px]">
       <div className="min-w-full text-center justify-center relative">
@@ -148,9 +152,7 @@ export default function Home() {
         <p className="text-sm">
           推荐优先级：{"巡猎>毁灭>记忆>丰饶>虚无>存护>欢愉"}
         </p>
-        <p className="text-sm">
-          解锁条件：20次
-        </p>
+        <p className="text-sm">解锁条件：20次</p>
         <Divider className="my-4" />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3   gap-4">

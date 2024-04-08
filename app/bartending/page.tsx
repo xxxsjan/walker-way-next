@@ -66,6 +66,9 @@ const allRes: any = {
   5: nestedForLoop(sourceArr, 5),
 };
 export default function PricingPage() {
+  useEffect(() => {
+    document.title = "调酒推演";
+  }, []);
   const [tiandu, setTiandu] = useState("0");
   const [liedu, setLiedu] = useState("0");
   const [nongchoudu, setNongchoudu] = useState("0");
@@ -85,11 +88,6 @@ export default function PricingPage() {
 
   return (
     <div>
-      <div className="mb-6">
-        {" "}
-        <h1 className={title({ color: "violet" })}>调酒推演</h1>
-      </div>
-
       <div className="mb-4 text-left">
         <RadioGroup
           label=""
@@ -138,12 +136,12 @@ export default function PricingPage() {
               <TableColumn>名称</TableColumn>
             </TableHeader>
             <TableBody>
-              {result.map((m:any, i) => {
+              {result.map((m: any, i) => {
                 return (
                   <TableRow key={i}>
                     <TableCell>{i + 1}</TableCell>
                     <TableCell>
-                      {m?.group?.map((item:any) => item[3]).join(" , ")}
+                      {m?.group?.map((item: any) => item[3]).join(" , ")}
                     </TableCell>
                   </TableRow>
                 );
